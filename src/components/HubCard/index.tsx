@@ -8,6 +8,8 @@ import CardContent from '@mui/material/CardContent'
 import CardMedia from '@mui/material/CardMedia'
 import Typography from '@mui/material/Typography'
 
+import Chips from './Chips'
+
 import { Hub } from 'types'
 
 const HubCard = ({ hubData }: { hubData: Hub }) => {
@@ -21,9 +23,28 @@ const HubCard = ({ hubData }: { hubData: Hub }) => {
         loading="lazy"
       />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
+        <Typography
+          variant="h5"
+          component="div"
+          mb={1}
+          mr={2}
+          display="inline-block"
+        >
           {hubData.displayName}
         </Typography>
+
+        {hubData.parentHubName && (
+          <Typography
+            variant="subtitle2"
+            component="span"
+            color="text.secondary"
+          >
+            Part of <b>{hubData.parentHubName}</b>
+          </Typography>
+        )}
+
+        <Chips type={hubData.type} state={hubData.state} />
+
         <Typography variant="body2" color="text.secondary">
           {hubData.cardDescription}
         </Typography>
