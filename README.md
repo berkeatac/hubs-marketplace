@@ -19,7 +19,7 @@ npm run dev
 - Vite
 - React
 - React Query
-- Tailwind CSS
+- Material UI
 
 ## License
 
