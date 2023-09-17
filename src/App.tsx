@@ -1,21 +1,17 @@
-import { useEffect } from 'react'
+import { QueryClient, QueryClientProvider } from 'react-query'
 
-import { getAllHubs } from 'api/hubsApi'
+import HubsContainer from 'components/HubsContainer'
+
+const queryClient = new QueryClient({})
 
 const App = () => {
-  useEffect(() => {
-    async function getHubs() {
-      const hubs = await getAllHubs()
-      console.log(hubs)
-    }
-
-    getHubs()
-  }, [])
-
   return (
-    <div>
-      <h1 className="mt-4 text-center text-2xl">Hello, world!</h1>
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <div>
+        <h1 className="mt-4 text-center text-2xl">Hub List</h1>
+        <HubsContainer />
+      </div>
+    </QueryClientProvider>
   )
 }
 

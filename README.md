@@ -1,12 +1,25 @@
 # Hublister - Berke Atac
 
-### Install
+## Installation
 
 Install dependencies.
 
 ```bash
 npm install
 ```
+
+Run the application. ( Runs on port 3000 )
+
+```bash
+npm run dev
+```
+
+## Tech Stack
+
+- Vite
+- React
+- React Query
+- Tailwind CSS
 
 ## License
 
