@@ -14,51 +14,67 @@ import { Hub } from 'types'
 
 const HubCard = ({ hubData }: { hubData: Hub }) => {
   return (
-    <Card sx={{ display: 'flex', flexDirection: 'column' }} component="article">
-      <CardMedia
-        component="img"
-        height="160"
-        image={hubData.cardImage.thumbnailDirectLink}
-        alt={`Card image of ${hubData.displayName}`}
-        loading="lazy"
-      />
-      <CardContent>
-        <Typography
-          variant="h5"
-          component="div"
-          mb={1}
-          mr={2}
-          display="inline-block"
-        >
-          {hubData.displayName}
-        </Typography>
-
-        {hubData.parentHubName && (
-          <Typography
-            variant="subtitle2"
-            component="span"
-            color="text.secondary"
-          >
-            Part of <b>{hubData.parentHubName}</b>
+    <>
+      <Card
+        sx={{ display: 'flex', flexDirection: 'column', position: 'relative' }}
+        component="article"
+      >
+        <CardMedia
+          component="img"
+          height="160"
+          image={hubData.cardImage.thumbnailDirectLink}
+          alt={`Card image of ${hubData.displayName}`}
+          loading="lazy"
+        />
+        <CardContent>
+          <Typography variant="h5" component="div" mb={1} mr={2}>
+            {hubData.displayName}
           </Typography>
+
+          <Chips type={hubData.type} state={hubData.state} />
+
+          <Typography variant="body2" color="text.secondary">
+            {hubData.cardDescription}
+          </Typography>
+
+          {hubData.parentHubName && (
+            <Typography
+              variant="subtitle2"
+              component="div"
+              color="text.secondary"
+              mt={1}
+            >
+              * This company is part of parent hub{' '}
+              <b>{hubData.parentHubName}</b>
+            </Typography>
+          )}
+        </CardContent>
+        <Box sx={{ flexGrow: 1 }} />
+        {hubData.slug && (
+          <CardActions>
+            <Button
+              size="small"
+              href={`https://test.cleanhub.com/hub/${hubData.slug}`}
+            >
+              Learn More
+            </Button>
+          </CardActions>
         )}
-
-        <Chips type={hubData.type} state={hubData.state} />
-
-        <Typography variant="body2" color="text.secondary">
-          {hubData.cardDescription}
-        </Typography>
-      </CardContent>
-      <Box sx={{ flexGrow: 1 }} />
-      <CardActions>
-        <Button
-          size="small"
-          href={`https://test.cleanhub.com/hub/${hubData.slug}`}
-        >
-          Learn More
-        </Button>
-      </CardActions>
-    </Card>
+        {hubData.logo?.directLink && (
+          <Box
+            component="img"
+            alt={`Logo image of ${hubData.displayName}`}
+            src={hubData.logo?.thumbnailDirectLink}
+            height={48}
+            position={'absolute'}
+            top={0}
+            left={0}
+            bgcolor={'white'}
+            borderRadius={'0 0 8px 0'}
+          />
+        )}
+      </Card>
+    </>
   )
 }
 
