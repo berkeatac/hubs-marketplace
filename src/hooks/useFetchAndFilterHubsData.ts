@@ -14,8 +14,9 @@ const useFetchAndFilterHubsData = () => {
     (hub: Hub) =>
       (filters.state !== 'All' ? hub.state === filters.state : true) &&
       (filters.type !== 'All' ? hub.type === filters.type : true) &&
-      (filters.textSearch
-        ? hub.displayName.includes(filters.textSearch)
+      (filters.textSearch?.toLowerCase()
+        ? hub.displayName.toLowerCase().includes(filters.textSearch) ||
+          hub.cardDescription.toLowerCase().includes(filters.textSearch)
         : true),
     [filters]
   )
