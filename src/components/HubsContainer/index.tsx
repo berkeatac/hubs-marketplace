@@ -2,7 +2,7 @@ import { useState, useCallback } from 'react'
 import { useQuery } from 'react-query'
 import Grid from '@mui/material/Grid'
 
-import { getAllHubs } from 'api/hubsApi'
+import { getAllHubs } from 'api'
 import Loader from 'components/Loader'
 import ErrorDisplay from 'components/ErrorDisplay'
 import HubCard from 'components/HubCard'
