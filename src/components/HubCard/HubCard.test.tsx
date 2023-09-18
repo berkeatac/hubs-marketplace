@@ -1,11 +1,11 @@
 import { render, screen } from '@testing-library/react'
 
 import HubCard from './index'
-import { mockData } from 'mock'
+import { mockSingleHubData } from 'mock'
 
 describe('Card', () => {
   it('Shows card title', () => {
-    render(<HubCard hubData={mockData} />)
+    render(<HubCard hubData={mockSingleHubData} />)
     expect(screen.getByText('Green Worms')).toBeDefined()
   })
 })

@@ -7,7 +7,7 @@ import {
   HubUnassignedRecoveryState
 } from '../types'
 
-export const mockData: Hub = {
+export const mockSingleHubData: Hub = {
   uuid: '0a60664f-cfd2-478a-8c1b-0b78f90c81eb',
   state: 'DEMO' as State,
   category: 'ASSIGNABLE' as Category,

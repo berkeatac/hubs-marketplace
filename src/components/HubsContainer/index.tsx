@@ -1,40 +1,15 @@
-import { useState, useCallback, useMemo } from 'react'
-import { useQuery } from 'react-query'
 import Grid from '@mui/material/Grid'
 
-import { getAllHubs } from 'api'
 import Loader from 'components/Loader'
 import ErrorDisplay from 'components/ErrorDisplay'
 import HubCard from 'components/HubCard'
 import HubsFilters from 'components/HubsFilters'
 
-import { Filters, Hub } from 'types'
+import useFetchAndFilterHubsData from 'hooks/useFetchAndFilterHubsData'
 
 const HubsContainer = () => {
-  const [filters, setFilters] = useState<Filters>({
-    state: 'All',
-    type: 'All',
-    textSearch: ''
-  })
-
-  const filterByForm = useCallback(
-    (hub: Hub) =>
-      (filters.state !== 'All' ? hub.state === filters.state : true) &&
-      (filters.type !== 'All' ? hub.type === filters.type : true) &&
-      (filters.textSearch
-        ? hub.displayName.includes(filters.textSearch)
-        : true),
-    [filters]
-  )
-
-  const { isLoading, isError, data, error } = useQuery('hubs', getAllHubs, {
-    staleTime: 1000 * 60 * 5
-  })
-
-  const filteredData = useMemo(
-    () => data?.filter(filterByForm) || [],
-    [data, filterByForm]
-  )
+  const { isLoading, isError, filteredData, error, filters, setFilters } =
+    useFetchAndFilterHubsData()
 
   if (isLoading) {
     return <Loader />

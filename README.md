@@ -35,6 +35,7 @@ npm test
 ## Decisions & Thoughts
 
 - Used `React Query` for data fetching and caching. It is easy to use, and takes care of state, caching, error handling and loading states.
+- Implemented a custom hook, `useFetchAndFilterHubsData`, to fetch and filter data. It also handles the memoization for data.
 - Used `Material UI` for styling. It has a lot of components and can be customized easily.
 - Used `memoization` techniques to prevent unnecessary re-renders, most importantly for the HubCard component that uses React.memo. This allows cards not to be re-rendered for filters state changes. This is observable through the Profiler.
 - Implemented a `responsive design` using Grid, that should work on any sized screen.
