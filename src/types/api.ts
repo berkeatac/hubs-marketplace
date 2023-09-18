@@ -78,4 +78,11 @@ type Hub = {
 
 type HubsResponse = Hub[]
 
-export type { HubsResponse, Hub }
+type Filters = {
+  state: State | null | 'All'
+  type: Type | null | 'All'
+  textSearch: string | null
+}
+
+export type { HubsResponse, Hub, Filters }
+export { Type, State }

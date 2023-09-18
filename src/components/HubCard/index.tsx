@@ -12,6 +12,7 @@ import Chips from './Chips'
 
 import { Hub } from 'types'
 import RecoveryProgression from './RecoveryProgression'
+import Grid from '@mui/material/Grid'
 
 interface HubCardProps {
   hubData: Hub
@@ -19,7 +20,7 @@ interface HubCardProps {
 
 const HubCard = ({ hubData }: HubCardProps) => {
   return (
-    <>
+    <Grid item xs={12} sm={6} lg={4} display="flex">
       <Card
         sx={{ display: 'flex', flexDirection: 'column', position: 'relative' }}
         component="article"
@@ -84,7 +85,7 @@ const HubCard = ({ hubData }: HubCardProps) => {
           />
         )}
       </Card>
-    </>
+    </Grid>
   )
 }
 
