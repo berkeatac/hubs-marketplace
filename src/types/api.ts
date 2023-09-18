@@ -84,5 +84,12 @@ type Filters = {
   textSearch: string | null
 }
 
-export type { HubsResponse, Hub, Filters }
+export type {
+  HubsResponse,
+  Hub,
+  Filters,
+  Stage,
+  Category,
+  HubUnassignedRecoveryState
+}
 export { Type, State }

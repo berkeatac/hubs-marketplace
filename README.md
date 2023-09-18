@@ -16,6 +16,12 @@ Run the application. ( Runs on port 3000 )
 npm run dev
 ```
 
+Run tests.
+
+```bash
+npm test
+```
+
 ## Tech Stack
 
 - TypeScript
@@ -23,6 +29,7 @@ npm run dev
 - React
 - React Query
 - Material UI
+- Jest / React Testing Library
 - Prettier / ESLint
 
 ## Decisions & Thoughts
@@ -34,7 +41,7 @@ npm run dev
 - Used different sized images for logos and card media, to optimize loading times. (Although the card images could be optimized further)
 - Didn't use a state management library, as the application is small and the state is not complex. (Although it could be implemented with Redux Toolkit or Context API)
 - URL for the API could be stored in an environment variable, so that it could be changed easily depending on current environment. This was skipped for the sake of simplicity, during set up.
-- I didn't write any tests, although I would have liked to. I would have used `Jest` and `React Testing Library` for unit tests, and `Cypress` for end-to-end tests. The runtime environment is set up for Jest already in the project.
+- I have added mock data and simple tests to the application. I have used `Jest` and `React Testing Library` for unit tests, and would have used `Cypress` for end-to-end tests.
 
 ## License
 
