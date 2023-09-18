@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useMemo } from 'react'
 import { useQuery } from 'react-query'
 import Grid from '@mui/material/Grid'
 
@@ -31,6 +31,11 @@ const HubsContainer = () => {
     staleTime: 1000 * 60 * 5
   })
 
+  const filteredData = useMemo(
+    () => data?.filter(filterByForm) || [],
+    [data, filterByForm]
+  )
+
   if (isLoading) {
     return <Loader />
   }
@@ -44,9 +49,15 @@ const HubsContainer = () => {
       <Grid item xs={12}>
         <HubsFilters filters={filters} setFilters={setFilters} />
       </Grid>
-      {data
-        ?.filter(filterByForm)
-        .map((hubData) => <HubCard hubData={hubData} key={hubData.uuid} />)}
+      {filteredData.length > 0 ? (
+        filteredData.map((hubData) => (
+          <HubCard hubData={hubData} key={hubData.uuid} />
+        ))
+      ) : (
+        <Grid item xs={12}>
+          No hubs are found
+        </Grid>
+      )}
     </Grid>
   )
 }
