@@ -19,7 +19,8 @@ const HubsFilters = ({ filters, setFilters }: HubsFiltersProps) => {
       sx={{
         width: '100%',
         flexDirection: { xs: 'column', sm: 'row' },
-        gap: '32px'
+        gap: '32px',
+        marginBottom: '12px'
       }}
       size="small"
       variant="standard"
@@ -30,7 +31,6 @@ const HubsFilters = ({ filters, setFilters }: HubsFiltersProps) => {
           labelId="select-company-type-label"
           id="select-company-type"
           value={filters.type}
-          label="Type"
           onChange={(e) =>
             setFilters({ ...filters, type: e.target.value as Type })
           }
@@ -54,6 +54,7 @@ const HubsFilters = ({ filters, setFilters }: HubsFiltersProps) => {
         onChange={(e) => setFilters({ ...filters, textSearch: e.target.value })}
       />
       <FormControlLabel
+        id="company-active-checkbox"
         sx={{ alignItems: 'self-end' }}
         control={
           <Checkbox

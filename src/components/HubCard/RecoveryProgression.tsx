@@ -36,7 +36,8 @@ const RecoveryProgression = ({
             position: 'absolute',
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center'
+            justifyContent: 'center',
+            height: '4rem'
           }}
         >
           <Typography

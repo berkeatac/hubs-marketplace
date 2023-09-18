@@ -28,7 +28,7 @@ const HubCard = ({ hubData }: HubCardProps) => {
         <CardMedia
           component="img"
           height="160"
-          image={hubData.cardImage.thumbnailDirectLink}
+          image={hubData.cardImage.directLink}
           alt={`Card image of ${hubData.displayName}`}
           loading="lazy"
         />
