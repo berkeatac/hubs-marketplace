@@ -11,8 +11,13 @@ import Typography from '@mui/material/Typography'
 import Chips from './Chips'
 
 import { Hub } from 'types'
+import RecoveryProgression from './RecoveryProgression'
 
-const HubCard = ({ hubData }: { hubData: Hub }) => {
+interface HubCardProps {
+  hubData: Hub
+}
+
+const HubCard = ({ hubData }: HubCardProps) => {
   return (
     <>
       <Card
@@ -48,6 +53,11 @@ const HubCard = ({ hubData }: { hubData: Hub }) => {
               <b>{hubData.parentHubName}</b>
             </Typography>
           )}
+          <RecoveryProgression
+            totalRecoveredQuantity={hubData.totalRecoveredQuantity}
+            unassignedQuantityTotal={hubData.unassignedQuantityTotal}
+            unit={hubData.recoveredQuantityUnit}
+          />
         </CardContent>
         <Box sx={{ flexGrow: 1 }} />
         {hubData.slug && (

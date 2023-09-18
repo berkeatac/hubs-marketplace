@@ -1,7 +1,12 @@
 import Chip from '@mui/material/Chip'
 import Stack from '@mui/material/Stack'
 
-const Chips = ({ type, state }: { type: string; state: string }) => {
+interface ChipsProps {
+  type: string
+  state: string
+}
+
+const Chips = ({ type, state }: ChipsProps) => {
   return (
     <Stack direction="row" spacing={1} mb={1.5}>
       <Chip
